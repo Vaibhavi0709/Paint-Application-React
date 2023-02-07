@@ -1,0 +1,40 @@
+import React from "react"; 
+import "./App.css";
+
+class App extends React.Component
+{
+  constructor()
+  {
+    super(); 
+    this.state={
+      count:0,
+      products: ["shoes", "shirts", "tees"],
+      bgColor: "red"
+    };
+  }
+  render()
+  {
+    // let count = 0; 
+    // let name = "Vibes";
+    // Paint Application 
+    const colors = ["red", "blue", "green", "yellow"];
+    return (
+  <> 
+    <div style={{height: "100vh", backgroundColor: this.state.bgColor}}> 
+     <div className="color-container" style={{display: "flex"}}>
+        {colors.map((color)=>{return (
+        <div className = "color" style={{backgroundColor: color}}  onClick={()=>{this.setState({bgColor: color})}}></div>)})}
+     </div> 
+    </div>
+      
+      {/* <ul>
+        {this.state.products.map(prod=>{return <li>{prod}</li>;})}
+      </ul>  */}
+      
+      
+  </>
+    );
+  }
+}
+
+export default App; 
