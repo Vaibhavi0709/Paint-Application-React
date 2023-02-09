@@ -1,0 +1,126 @@
+App.js Code 
+
+import React from "react"; 
+import "./App.css";
+import Color from "./Color.js"
+
+class App extends React.Component
+{
+  constructor()
+  {
+    super(); 
+    this.state={
+      count:0,
+      products: ["shoes", "shirts", "tees"],
+      bgColor: "red"
+    };
+  }
+
+  chnageBgColor = (newColor)=>{this.setState()
+    {
+     bgColor: newColor
+    }}
+
+
+  render()
+  {
+    // let count = 0; 
+    // let name = "Vibes";
+    // Paint Application 
+    const colors = ["red", "blue", "green", "yellow"];
+    return (
+  <> 
+    <div style={{height: "100vh", backgroundColor: this.state.bgColor}}> 
+     <div className="color-container" style={{display: "flex"}}>
+        {colors.map((color)=>{return (<Color color={color} chnageColor = {this.chnageBgColor} />)})}
+     </div> 
+    </div>
+      
+      {/* <ul>
+        {this.state.products.map(prod=>{return <li>{prod}</li>;})}
+      </ul>  */}
+      
+      
+  </>
+    );
+  }
+}
+
+export default App; 
+
+
+Colors.js Code
+
+import React from "react";
+class Color extends React.Component
+{
+    constructor()
+    {
+        super();
+    }
+
+    render()
+    {
+        return 
+        (
+          <>
+          <div className = "color" 
+           style={{backgroundColor: this.props.color}}  
+        onClick={()=>{
+          this.props.changeColor(this.props.color);   
+        }
+            }></div>
+          </>
+        )
+    }
+
+}
+
+export default Color; 
+
+App.css Code
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.color{
+  border-radius: 50%;
+  width: 30px; 
+  height: 100px; 
+}
